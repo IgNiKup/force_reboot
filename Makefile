@@ -1,17 +1,18 @@
 CC = gcc
 CFLAGS = -I.
 DEPS =
-OBJ = reboot.o
+TGT = reboot
+OBJ = $(TGT).o
 
-all: reboot
+all: $(TGT)
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 reboot: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 clean:
-	rm -f reboot $(OBJ)
+	rm -f $(TGT) $(OBJ)
 install:
-	strip reboot
-	sudo cp reboot /sbin/
-	sudo chown root /sbin/reboot
-	sudo chmod u+s /sbin/reboot
+	strip $(TGT)
+	sudo cp $(TGT) /sbin/$(TGT)
+	sudo chown root /sbin/$(TGT)
+	sudo chmod u+s /sbin/$(TGT)
