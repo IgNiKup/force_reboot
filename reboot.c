@@ -16,6 +16,6 @@ void pc (char c) {
 }
 void main () {
 	pc('s'); s500(); // sync disks
-	pc ('u'); s500(); // umount disks
-	pc ('b'); // hard reboot
+	pc('u'); s500(); // umount disks
+	pc('b'); // hard reboot
 }
